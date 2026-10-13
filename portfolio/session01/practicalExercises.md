@@ -29,20 +29,73 @@ Use this document as a place to add your answers to the week's practical exercis
 
 ## Q.2 Datavis Evaluation
 
-_Add your 5-point critique here (see Q.2 of the session 1 practical exercises)._
+1. Represents a complex dataset graphically that could not as effectively be represented via other means.
+2. Often emphasises _connections_ and _comparisons_ between items of data.
+3. Frequently involves _interaction_ to allow a user to influence what they see.
+4. A _narrative_ supporting the construction of knowledge.
+5. Generates an _aesthetic response_ in order to encourage users to engage with the data or question.
 
 ## Q.3 Bicycle Hires Visualization
 
-_Copy the bicycle hires example from the practical exercise here and check you can preview it from within VSCode._
+```elm {l v}
+bikehireBarchart : Spec
+bikehireBarchart =
+    let
+        data =
+            dataFromUrl "https://gicentre.github.io/data/bicycleHiresLondon.csv"
+
+        enc =
+            encoding
+                << position X [ pName "Month", pTemporal ]
+                << position Y [ pName "NumberOfHires", pQuant ]
+    in
+    toVegaLite [ width 640, data [], enc [], bar [] ]
+```
 
 ## Q.4 Creating a Scatterplot
 
-_Place your scatterplot code here._
+```elm {l v}
+bikehireScatterplot : Spec
+bikehireScatterplot =
+    let
+        data =
+            dataFromUrl "https://gicentre.github.io/data/bicycleHiresLondon.csv"
+
+        enc =
+            encoding
+                << position X [ pName "NumberOfHires", pQuant ]
+                << position Y [ pName "AvHireTime", pQuant ]
+    in
+    toVegaLite [ width 640, data [], enc [], circle [] ]
+```
 
 ## Q.5 Data Challenge
 
-_Add your data challenge specification here._
+```elm {l v}
+euPollsChart : Spec
+euPollsChart =
+    let
+        data =
+            dataFromUrl "https://gicentre.github.io/data/euPolls3.json"
+
+        enc =
+            encoding
+                << position X [ pName "Date", pTemporal ]
+                << position Y [ pName "Percent", pQuant ]
+                << color [ mName "Answer", mNominal ]
+                << tooltip
+                    [ tName "Pollster"
+                    , tName "Answer"
+                    , tName "Percent"
+                    ]
+    in
+    toVegaLite [ width 640, data [], enc [], circle [] ]
+```
+
+I choosed a catterplot. It shows how public opinion about joing the EU changed over time.
+To see and compare the answers easily I used three diffenert colours: red for no answer/don't know, yellow for stay out and blue for join.
+Overall, data shows that mostly join the EU support opininon is higher then staying out opininon.
 
 ## Q.6 Design Challenge
 
-_Add a link to a photo of your design sketch._
+![UK and EU chart](task6sess1.png)

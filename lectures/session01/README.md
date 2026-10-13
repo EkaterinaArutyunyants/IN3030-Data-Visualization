@@ -76,6 +76,12 @@ When viewing these notes in [litvis](#2-literate-visualization-and-litvis) to ca
 
 Add your 5-point critique here:
 
+1. Complex data: The visualisation presents the sizes of different organisms in an undersanding way.
+2. Connections and comparisons: It allows users to compare sizes of different organisms.
+3. Interaction: users can iteractivle explore organisms.
+4. Narrative: It tells a story from microscopic cells to giant organisms
+5. Aesthetics: the pictures are detailed and attractive also there is special counds and music which makes the project even more engaging and interesting.
+
 {|annotation)}
 
 If you want to explore a wider range of data visualizations, this [list of lists](https://www.maartenlambrechts.com/2023/01/02/the-list-of-2022-visualization-lists.html) from Maarten Lambrechts and [shortlisted for the 2024 Information is Beautiful awards](https://www.informationisbeautifulawards.com/showcase?action=index&award=2023&controller=showcase&page=1&pcategory=short-list&type=awards) are good places to start.
@@ -444,7 +450,7 @@ You can add the text by starting VSCode and opening `practicalExercises.md` whic
 
 Still within VSCode, copy the following specification into your `practicalExercises.md` file.
 
-```elm {l}
+```elm {l v}
 bikehireBarchart : Spec
 bikehireBarchart =
     let
@@ -530,10 +536,10 @@ As you complete your answers to the questions above, make sure you submit your u
 
 _Check your progress._
 
-- [ ] I can critique a data visualization based on the five criteria given in the lecture notes.
-- [ ] I have installed the _VSCode_ editor with the _litvis_ plug-in on my computer.
-- [ ] I have downloaded the coursework template repo from Moodle.
-- [ ] I can write simple markdown text in a litvis document.
-- [ ] I can specify a simple visualization using elm-vega.
-- [ ] I have related a visualization design and specification to Munzner's 'what-why-how' framework.
-- [ ] I have related a visualization specification to some of Wilkinson's 7 _Grammar of Graphics_ steps.
+- [x] I can critique a data visualization based on the five criteria given in the lecture notes.
+- [x] I have installed the _VSCode_ editor with the _litvis_ plug-in on my computer.
+- [x] I have downloaded the coursework template repo from Moodle.
+- [x] I can write simple markdown text in a litvis document.
+- [x] I can specify a simple visualization using elm-vega.
+- [x] I have related a visualization design and specification to Munzner's 'what-why-how' framework.
+- [x] I have related a visualization specification to some of Wilkinson's 7 _Grammar of Graphics_ steps.
