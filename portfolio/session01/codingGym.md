@@ -73,15 +73,39 @@ Create separate functions, that display the following, each in their own `r` cod
 {|task)}
 
 ```elm {l r}
--- Place your first name function here inside the code block.
+myFirstName : String
+myFirstName =
+    "Ekaterina"
 ```
 
 ```elm {l r}
--- Place your last name function here inside the code block.
+myLastName : String
+myLastName =
+    "Arutyunyants"
 ```
 
 ```elm {l r}
--- Place your commuting minutes function here inside the code block.
+commuteMinutes : Int
+commuteMinutes =
+    20
+```
+
+```elm {l r}
+piValue : Float
+piValue =
+    3.141
+```
+
+```elm {l r}
+visualizationQuote : String
+visualizationQuote =
+    "The purpose of visualization is insight, not pictures."
+```
+
+```elm {l r}
+choleraYear : Int
+choleraYear =
+    1854
 ```
 
 ## 1.2. Simple functions with operators
@@ -110,3 +134,33 @@ Create functions to calculate the following and show their output in litvis with
 - The mean (average) of the even numbers from 2 to 10.
 
 {|task)}
+
+```elm {l r}
+product : Int
+product =
+    1 * 2 * 3 * 4 * 5 * 6
+```
+
+```elm {l r}
+seconds : Int
+seconds =
+    365 * 24 * 60 * 60
+```
+
+```elm {l r}
+division : Float
+division =
+    377 / 120
+```
+
+```elm {l r}
+bondName : String
+bondName =
+    myLastName ++ ", " ++ myFirstName ++ " " ++ myLastName
+```
+
+```elm {l r}
+mean : Float
+mean =
+    (2 + 4 + 6 + 8 + 10) / 5
+```
