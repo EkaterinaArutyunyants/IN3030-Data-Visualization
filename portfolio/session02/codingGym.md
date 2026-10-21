@@ -1,8 +1,11 @@
 ---
+
 id: litvis
 
 narrative-schemas:
-  - ../../lectures/narrative-schemas/teaching.yml
+
+- ../../lectures/narrative-schemas/teaching.yml
+
 ---
 
 @import "../../lectures/css/datavis.less"
@@ -40,17 +43,58 @@ todoList =
 Create separate functions, each in their own code block, that display the following. Remember to include `elm {l r}` in each code block header so you can see the results. If created successfully, you should see the evaluation of each function appear in the preview window.
 
 - the names of two cities you have visited and two you would like to visit
+
+```elm {l r}
+cities : List String
+cities =
+    [ "Rome", "Paris", "Milan", "New York" ]
+```
+
 - the integers 70 to 75 inclusive.
+
+```elm {l r}
+integers : List Int
+integers =
+    [ 70, 71, 72, 73, 74, 75 ]
+```
+
 - the [triangular numbers](https://en.wikipedia.org/wiki/Triangular_number) with one or two digits.
+
+```elm {l r}
+triangularNumbers : List Int
+triangularNumbers =
+    [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55, 66, 78, 91 ]
+```
+
 - The first 5 numbers in the sequence 1/1, 1/2, 1/3,... etc.
+
+```elm {l r}
+numbersInSequence : List Float
+numbersInSequence =
+    [ 1 / 1, 1 / 2, 1 / 3, 1 / 4, 1 / 5 ]
+```
+
 - The colours of the rainbow.
+
+```elm {l r}
+coloursOfRainbow : List String
+coloursOfRainbow =
+    [ "red", "orange", "yellow", "green", "blue", "indigo", "violet" ]
+```
+
 - A list of mammals that have eight legs.
+
+```elm {l r}
+eightLeggedMammals : List String
+eightLeggedMammals =
+    []
+```
 
 {|task)}
 
 ## 2.2. In-built functions to generate lists
 
-Elm has a number of functions that make it easier to create lists. In particular [List.range](https://package.elm-lang.org/packages/elm/core/latest/List#range) for creating a range of integers; [List.repeat](https://package.elm-lang.org/packages/elm/core/latest/List#repeat) for creating a list of repeated items, the [cons operator `::`](<https://package.elm-lang.org/packages/elm/core/latest/List#(::)>) for adding an item to a list and the [++](https://package.elm-lang.org/packages/elm/core/latest/Basics#++) operator for combining two lists. For example:
+Elm has a number of functions that make it easier to create lists. In particular [List.range](https://package.elm-lang.org/packages/elm/core/latest/List#range) for creating a range of integers; [List.repeat](https://package.elm-lang.org/packages/elm/core/latest/List#repeat) for creating a list of repeated items, the [cons operator `::`](https://package.elm-lang.org/packages/elm/core/latest/List) for adding an item to a list and the [++](https://package.elm-lang.org/packages/elm/core/latest/Basics#++) operator for combining two lists. For example:
 
 ```elm {l r}
 firstTen : List Int
@@ -78,10 +122,46 @@ oddsAndEvens =
 Choosing from the list-generating functions above, create separate functions to do the following:
 
 - List the whole numbers (integers) 1992 to 2023 inclusive
+
+```elm {l r}
+years : List Int
+years =
+    List.range 1992 2023
+```
+
 - List the integers between -250 and -88 inclusive
+
+```elm {l r}
+negativeNumbers : List Int
+negativeNumbers =
+    List.range -250 -88
+```
+
 - Add your own name added to this group of travellers: `[ "Ripley", "Vasquez", "Bishop", "Burke" ]`
+
+```elm {l r}
+travellers : List String
+travellers =
+    "Ekaterina" :: [ "Ripley", "Vasquez", "Bishop", "Burke" ]
+```
+
 - The word "dozen" repeated half a dozen times.
+
+```elm {l r}
+dozens : List String
+dozens =
+    List.repeat 6 "dozen"
+```
+
 - Create a single list made up by combining a list of three animals, three vegetables and three minerals.
+
+```elm {l r}
+combinedItems : List String
+combinedItems =
+    [ "Cat", "Dog", "Horse" ]
+        ++ [ "Cucumber", "Potato", "Eggplant" ]
+        ++ [ "Silver", "Diamond", "Gold" ]
+```
 
 {|task)}
 
@@ -110,15 +190,42 @@ power =
 Using the list-summarising functions above, create separate functions to calculate the following:
 
 - The total of the integers from -250 to -88
+
+```elm {l r}
+totalNum : Int
+totalNum =
+    List.sum (List.range -250 -88)
+```
+
 - The number of items in the combined list `[] ++ [ "Ripley", "Vasquez", "Bishop", "Burke" ]`
+
+```elm {l r}
+numOfItems : Int
+numOfItems =
+    List.length ([] ++ [ "Ripley", "Vasquez", "Bishop", "Burke" ])
+```
+
 - The mean (average) of all integers from -250 to -88
+
+```elm {l r}
+meanOfInt : Float
+meanOfInt =
+    toFloat (List.sum (List.range -250 -88)) / toFloat (List.length (List.range -250 -88))
+```
+
 - 7 factorial (equivalent to `7 * 6 * 5 * 4 * 3 * 2 * 1`)
+
+```elm {l r}
+factorial7 : Int
+factorial7 =
+    List.product (List.range 1 7)
+```
 
 {|task)}
 
 ## 2.4 Tuples
 
-Sometimes we might wish to operate on a very small collection of items rather than a list of unspecified length. For this we can use a [tuple](https://package.elm-lang.org/packages/elm/core/latest/Tuple) which can contain two or three items only. An unlike a list, the items do not need to be of the same type.
+Sometimes we might wish to operate on a very small collection of items rather than a list of unspecified length. For this we can use a [tuple](https://package.elm-lang.org/packages/elm/core/latest/Tuple) which can contain two or three items only. And unlike a list, the items do not need to be of the same type.
 
 Tuples are indicated with round rather than square brackets. For example:
 
@@ -133,7 +240,27 @@ ada =
 Create functions that return tuples or lists of tuples that represent:
 
 - Your name and commuting time.
+
+```elm {l r}
+nameTime : ( String, Int )
+nameTime =
+    ( "Ekaterina", 20 )
+```
+
 - A point in 3d space (requiring 3 coordinates)
+
+```elm {l r}
+point3D : ( Float, Float, Float )
+point3D =
+    ( 1.0, 2.0, 3.0 )
+```
+
 - A list of 2d coordinates (i.e. each coordinate requiring a pair of coordinate values, but a number of them)
+
+```elm {l r}
+point2D : List ( Float, Float )
+point2D =
+    [ ( 1.0, 2.0 ), ( 3.0, 4.0 ), ( 5.0, 6.0 ) ]
+```
 
 {|task)}
