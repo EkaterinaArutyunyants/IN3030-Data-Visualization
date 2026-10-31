@@ -40,19 +40,23 @@ Modify each of the functions q1-q5 below so they use the right pipe operator in 
 ```elm {l r}
 q1 : Float
 q1 =
-    sqrt (13 + 14)
+    13 + 14 |> sqrt
 ```
 
 ```elm {l r}
 q2 : List String
 q2 =
-    List.reverse (String.words (String.toUpper "Battle ends and down goes Charles father"))
+    "Battle ends and down goes Charles father"
+        |> String.toUpper
+        |> String.words
+        |> List.reverse
 ```
 
 ```elm {l r}
 q3 : List Float
 q3 =
-    List.map toFloat (List.range 1992 2023)
+    List.range 1992 2023
+        |> List.map toFloat
 ```
 
 ```elm {l r}
@@ -62,7 +66,10 @@ q4 =
         third x =
             x / 3
     in
-    List.sum (List.map third (List.map toFloat (List.range 1 33)))
+    List.range 1 33
+        |> List.map toFloat
+        |> List.map third
+        |> List.sum
 ```
 
 ```elm {l}
@@ -72,7 +79,11 @@ q5 minVal maxVal =
         square x =
             x * x
     in
-    List.sum (List.map square (List.range minVal maxVal))
+    List.range minVal maxVal
+        |> List.map square
+        |> List.sum
+            List.sum
+            (List.map square (List.range minVal maxVal))
 ```
 
 _To see the result of function q5, we can test it with an example pair of numbers:_
@@ -122,39 +133,23 @@ Re-express the map functions in the following (from last week) as anonymous func
 ```elm {l}
 potato : List String -> List String
 potato myList =
-    let
-        addSpud word =
-            word ++ " potato"
-    in
-    List.map addSpud myList
+    List.map (\word -> word ++ " potato")
 ```
 
 ```elm {l}
 inc2023 : List Int -> List Int
 inc2023 xs =
-    let
-        add2023 x =
-            x + 2023
-    in
-    List.map add2023 xs
+    List.map (\x -> x + 2023) xs
 ```
 
 ```elm {l}
 quintuple : List Int -> List Int
 quintuple myList =
-    let
-        times5 a =
-            a * 5
-    in
-    List.map times5 myList
+    List.map (\a -> a * 5) myList
 ```
 
 ```elm {l}
 sumSq : List Float -> Float
 sumSq myList =
-    let
-        sq num =
-            num * num
-    in
-    List.sum (List.map sq myList)
+    List.sum (List.map (\num -> num * num) myList)
 ```
