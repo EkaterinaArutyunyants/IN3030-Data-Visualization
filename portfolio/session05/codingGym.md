@@ -48,10 +48,65 @@ Valid Boolean operators include:
 Using Boolean operators, write functions to do the following. You should also add test functions to check they behave as you expect them to (you can use triple hat notation as above or write your own functions in code blocks).
 
 - Determine if a number provided as a parameter is positive or not
+
+```elm {l}
+isPositive : Int -> Bool
+isPositive n =
+    n > 0
+```
+
 - Determine if a string provided as a parameter matches the word `petrichor`
+
+```elm {l}
+isPetrichor : String -> Bool
+isPetrichor word =
+    word == "petrichor"
+```
+
 - Determine if a number provided as a parameter is odd (hint, have a look at [modBy](https://package.elm-lang.org/packages/elm/core/latest/Basics#modBy) to help.)
+
+```elm {l}
+isOdd : Int -> Bool
+isOdd n =
+    modBy 2 n /= 0
+```
+
 - Determine if a list of numbers provided as a parameter has at least 2 entries
+
+```elm {l}
+hasTwoEntries : List Int -> Bool
+hasTwoEntries numbers =
+    List.length numbers >= 2
+```
+
 - Determine if a number is not divisible by 5 and is even.
+
+```elm {l}
+isEvenNotDivisibleBy5 : Int -> Bool
+isEvenNotDivisibleBy5 n =
+    modBy 2 n == 0 && modBy 5 n /= 0
+```
+
+```elm {l r}
+testPositive =
+    isPositive 5
+
+
+testPetrichor =
+    isPetrichor "petrichor"
+
+
+testOdd =
+    isOdd 7
+
+
+testEntries =
+    hasTwoEntries [ 1, 2, 3 ]
+
+
+testEven =
+    isEvenNotDivisibleBy5 12
+```
 
 {|task)}
 
@@ -70,14 +125,39 @@ smallNumbers =
 Filter the following lists using the predicates you created in the previous task:
 
 - Filter only the positive numbers in `List.range -100 40`
+
+```elm {l r}
+positiveNumbers =
+    List.filter isPositive (List.range -100 40)
+```
+
 - Filter only words that match `petrichor` in the following list `["pet rich or", "tiddles", "abc123", "systemDefault", "petrichor", "18Jan2023"]`
+
+```elm {l r}
+petrichorWords =
+    List.filter isPetrichor [ "pet rich or", "tiddles", "abc123", "systemDefault", "petrichor", "18Jan2023" ]
+```
+
 - Filter only even numbers in `List.range 1 40`
+
+```elm {l r}
+evenNumbers =
+    List.filter (\n -> modBy 2 n == 0) (List.range 1 40)
+```
+
 - Filter only lists of at least 2 entries from the following list of lists:
 
   ```elm
+  longLists =
+  List.filter hasTwoEntries
   [[1,2], [10,11,21,24], [], [0,0,0,0,0,0], [0], [-1,-2,-3]]
   ```
 
 - Provide a list of all the even numbers between 1 and 40 inclusive that are not divisible by 5
+
+```elm {l r}
+evenNotDivisibleBy =
+    List.filter isEvenNotDivisibleBy5 (List.range 1 40)
+```
 
 {|task)}

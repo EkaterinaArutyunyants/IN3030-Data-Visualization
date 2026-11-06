@@ -82,8 +82,6 @@ q5 minVal maxVal =
     List.range minVal maxVal
         |> List.map square
         |> List.sum
-            List.sum
-            (List.map square (List.range minVal maxVal))
 ```
 
 _To see the result of function q5, we can test it with an example pair of numbers:_
@@ -133,7 +131,7 @@ Re-express the map functions in the following (from last week) as anonymous func
 ```elm {l}
 potato : List String -> List String
 potato myList =
-    List.map (\word -> word ++ " potato")
+    List.map (\word -> word ++ " potato") myList
 ```
 
 ```elm {l}
