@@ -35,8 +35,8 @@ I cleaned and filtered the original Excel files, selected relevant variables for
 Initial dataset:
 https://research-portal.st-andrews.ac.uk/en/datasets/dataset-sex-differences-in-confidence-influence-patterns-of-confo/
 
-My cleaned, filtered and combined dataset:
-[Conformity_Data.csv](Conformity_Data.csv)
+Cleaned, filtered and combined dataset:
+[Conformity_Data.csv](https://github.com/EkaterinaArutyunyants/data)
 
 {|datasources)}
 
